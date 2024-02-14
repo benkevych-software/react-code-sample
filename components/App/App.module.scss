@@ -1,0 +1,19 @@
+@use 'core/src/styles/theme';
+
+:global(div#root) {
+    font-size: 10px;
+}
+
+.wrapper {
+    position: relative;
+    overflow-y: hidden;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background: theme.$surface-primary;
+    font-family: theme.$font-primary;
+    width: theme.$app-width-web-annotate;
+    max-width: theme.$app-width-web-annotate;
+    min-height: theme.$app-height-web-annotate;
+    height: theme.$app-height-web-annotate;
+}

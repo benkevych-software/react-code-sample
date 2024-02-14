@@ -1,0 +1,40 @@
+@use 'core/src/styles/mixins';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    padding: 32px 0 16px;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+
+    h2 {
+        text-align: center;
+        font-size: 2em;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.15px;
+    }
+}
+
+.fields {
+    @include mixins.space-vertical(18px);
+
+    display: flex;
+    flex-direction: column;
+    padding: 0 68px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 26px;
+}

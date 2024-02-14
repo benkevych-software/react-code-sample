@@ -1,0 +1,67 @@
+@use 'core/src/styles/theme';
+@use 'core/src/styles/mixins';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    position: relative;
+}
+
+.header {
+    @include mixins.space-vertical(14px);
+
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 124px;
+    background: theme.$gradient-main;
+    padding: 12px;
+}
+
+%extendableContainer {
+    margin-inline: auto;
+    max-width: theme.$container-max-width-web-annotate;
+    min-width: theme.$container-min-width-web-annotate;
+    width: 100%;
+}
+
+.container {
+    @extend %extendableContainer;
+
+    &:has(.header) {
+        max-width: 100%;
+        background: theme.$gradient-main;
+        z-index: 11;
+
+        .header {
+            @extend %extendableContainer;
+        }
+    }
+}
+
+.body {
+    @include mixins.custom-scroll();
+
+    flex: 1 1 auto;
+    overflow-y: auto;
+}
+
+.dimmer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 56px;
+    width: calc(100% - #{theme.$scroll-bar-width});
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.86) 50%, #ffffff 100%);
+}
+
+.headerRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
